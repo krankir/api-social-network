@@ -6,8 +6,8 @@ User = get_user_model()
 
 class Group(models.Model):
     title = models.CharField(max_length=200,
-                             verbose_name='Жанр',
-                             help_text='Укажите жанр')
+                             verbose_name='Группа',
+                             help_text='Укажите группу')
     slug = models.SlugField(max_length=255,
                             unique=True,
                             verbose_name='Параметр',
@@ -19,8 +19,8 @@ class Group(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'Жанр'
-        verbose_name_plural = 'Жанры'
+        verbose_name = 'Группа'
+        verbose_name_plural = 'Группы'
 
 
 class Post(models.Model):
@@ -30,6 +30,10 @@ class Post(models.Model):
         User, on_delete=models.CASCADE, related_name='posts')
     image = models.ImageField(
         upload_to='posts/', null=True, blank=True)
+    group = models.ForeignKey(
+        Group, on_delete=models.CASCADE,
+        related_name="posts", blank=True, null=True
+    )
 
     def __str__(self):
         return self.text
