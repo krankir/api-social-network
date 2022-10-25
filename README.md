@@ -55,6 +55,60 @@ http://127.0.0.1:8000/redoc/
 ### Примеры запросов
 
 - /api/v1/posts/ (**GET**)- Получить список всех публикаций.
+
+Response samples :
+```
+[
+    {
+        "id": 0,
+        "author": "string",
+        "text": "string",
+        "pub_date": "2021-10-14T20:41:29.648Z",
+        "image": "string",
+        "group": 0
+    }
+]
+```
 - /api/v1/posts/ (**POST**)- Добавление новой публикации.
+
+Request sample :
+```
+{
+    "text": "string",
+    "image": "string",
+    "group": 0
+}
+```
+Response samples :
+```
+{
+    "id": 0,
+    "author": "string",
+    "text": "string",
+    "pub_date": "2019-08-24T14:15:22Z",
+    "image": "string",
+    "group": 0
+}
+```
 - /api/v1/posts/{id}/ (**PUT**)- Редактирование публикации.
+
+Request sample :
+```
+{
+    "text": "string",
+    "image": "string",
+    "group": 0
+}
+```
+Response samples :
+```
+{
+    "id": 0,
+    "author": "string",
+    "text": "string",
+    "pub_date": "2019-08-24T14:15:22Z",
+    "image": "string",
+    "group": 0
+}
+```
 - ...
