@@ -47,9 +47,6 @@ class CommentViewSet(viewsets.ModelViewSet):
         post = get_object_or_404(Post, pk=self.kwargs.get("post_id"))
         serializer.save(author=self.request.user, post=post)
 
-    def perform_destroy(self, instance):
-        instance.delete()
-
     def get_queryset(self):
         post = get_object_or_404(Post, pk=self.kwargs.get("post_id"))
         return post.comments.all()
